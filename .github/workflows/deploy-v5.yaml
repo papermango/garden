@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -44,14 +44,6 @@ jobs:
         run: npx quartz plugin install
       - name: Build Quartz
         run: npx quartz build
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0 # Fetch all history for git info
       - name: Deploy to public branch
         uses: s0/git-publish-subdir-action@develop
         id: deployment
