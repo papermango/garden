@@ -53,7 +53,7 @@ jobs:
         uses: s0/git-publish-subdir-action@develop
         id: deployment
         env:
-          REPO: git@github.com:papermango/garden.git
+          REPO: self
           BRANCH: public
           FOLDER: public
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
