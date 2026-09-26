@@ -49,6 +49,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # Fetch all history for git info
       - name: Deploy to public branch
         uses: s0/git-publish-subdir-action@develop
         id: deployment
