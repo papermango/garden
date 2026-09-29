@@ -2,7 +2,7 @@ RewriteEngine On
 
 # Redirect direct .html requests to the clean URL
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
-RewriteRule ^ /%1 [R=302,L]
+RewriteRule ^ /%1 [R=301,L]
 
 # Serve clean URLs from .html files, only if the file exists
 RewriteCond %{REQUEST_FILENAME} !-d
