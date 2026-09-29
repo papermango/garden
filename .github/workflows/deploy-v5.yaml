@@ -43,9 +43,9 @@ jobs:
         run: npx quartz plugin install
       - name: Build Quartz
         run: npx quartz build
-      - name: Copy over cpanel.yml
+      - name: Copy over config files
         run: |
-            cp .cpanel.yml public/
+            cp cpanel-conf/* public/
       - name: Deploy to public branch
         uses: s0/git-publish-subdir-action@develop
         id: deployment

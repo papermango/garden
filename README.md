@@ -1,3 +1,7 @@
+# Dev Notes
+
+GitHub deployment template is set up to build Quartz, copy over the configuration files in cpanel-conf (needed to configure cPanel and get the site working while minimizing the time actually spent in it), and copy over the files in the build into its own branch that cPanel simply hosts. A cron job in cPanel is intended to pull the most current build of the website every night.
+
 # Quartz v5
 
 > “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
