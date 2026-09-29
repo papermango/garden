@@ -1,4 +1,5 @@
 ---
 deployment:
   tasks:
-    - echo "No steps needed"
+    - git checkout public
+    - git pull
