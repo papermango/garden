@@ -1,7 +1,6 @@
 ---
 title: Stitch Metric Definitions
 date: 2026-09-29
-permalink: stitch_metric_definitions
 enableToc: true
 tags:
   - crochet

@@ -1,7 +1,6 @@
 ---
 title: Lemon Peel Stitch
 date: 2026-09-29
-permalink: lemon_peel_stitch
 enableToc: true
 tags:
   - crochet
