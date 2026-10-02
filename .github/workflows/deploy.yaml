@@ -1,23 +1,26 @@
-name: Deploy Quartz site to cPanel
-
+name: Deploy Quartz site to GitHub Pages
+ 
 on:
   push:
     branches:
       - v5
-
+ 
 permissions:
-  contents: write
+  contents: read
+  pages: write
   id-token: write
-
+ 
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
+ 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # Fetch all history for git info
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -41,14 +44,18 @@ jobs:
         run: npx quartz plugin install
       - name: Build Quartz
         run: npx quartz build
-      - name: Copy over config files
-        run: |
-            cp -R cpanel-conf/. public/
-      - name: Deploy to public branch
-        uses: s0/git-publish-subdir-action@develop
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+ 
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
         id: deployment
-        env:
-          REPO: self
-          BRANCH: public
-          FOLDER: public
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/deploy-pages@v4
