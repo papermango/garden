@@ -3,8 +3,9 @@ title: Suzette (Thicket) Stitch
 date: 2026-09-29
 enableToc: true
 tags:
-- crochet
-- art
+  - crochet
+  - art
+permalink: suzette-thicket-stitch
 ---
 ## Stitch metrics
 - Name(s): Suzette, Thicket 
