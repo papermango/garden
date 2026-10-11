@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
+# note quartz tui deletes the comments here - don't use it probably
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: Parth's Garden
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -15,11 +16,11 @@ configuration:
   theme:
     fontOrigin: googleFonts
     cdnCaching: true
-    typography:
+    typography: # overriden by quartz-fonts
       header: Charis SIL
       body: Geist
       code: Inconsolata
-    colors:
+    colors: # overriden by quartz-themes if active
       lightMode:
         light: "#faf8f8"
         lightgray: "#e5e5e5"
@@ -41,6 +42,25 @@ configuration:
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#b3aa0288"
 plugins:
+  - source: "@quartz-themes/core"
+  # quartz-themes is treated as a bundled plugin but you have to install it via npm
+  # if you add a new theme, running npx quartz build --serve will install the theme as a pre-step,
+  # but changing the theme while it's running will generally cause a crash
+    enabled: false
+    options:
+      # for all themes, the graph view is broken and does not show lines. in general this plugin sucks
+      # tokyo-night is kinda broken, could use it but will need manual adjustments
+      # hackthebox is dark mode only and kinda ugly
+      # abecedarium is closest to good
+      theme: hackthebox
+      mode: both
+  - source: "@quartz-community/quartz-fonts" # font configuration has to happen here!!
+    enabled: true
+    options:
+      fontOrigin: googleFonts
+      header: Charis SIL
+      body: Figtree # i like this one a lot! https://www.erikdkennedy.com/projects/figtree.html
+      code: JetBrains Mono
   - source: "@quartz-community/created-modified-date"
     enabled: true
     options:
@@ -98,13 +118,6 @@ plugins:
   - source: "@quartz-community/roam"
     enabled: false
     order: 92
-  - source: "@quartz-community/quartz-fonts"
-    enabled: true
-  - source: "@quartz-themes/core"
-    enabled: false
-    options:
-      theme: tokyo-night
-      mode: both
   - source: "@quartz-community/remove-draft"
     enabled: true
   - source: "@quartz-community/explicit-publish"
@@ -253,6 +266,10 @@ plugins:
       position: beforeBody
       priority: 15
       display: all
+  - source: github:quartz-community/tui
+    enabled: true
+    options: {}
+    order: 50
 layout:
   groups:
     toolbar:
