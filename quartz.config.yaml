@@ -16,7 +16,7 @@ configuration:
   theme:
     fontOrigin: googleFonts
     cdnCaching: true
-    typography: # overriden by quartz-fonts
+    typography: # overriden by quartz-fonts (but needs to be present)
       header: Charis SIL
       body: Geist
       code: Inconsolata
@@ -41,6 +41,33 @@ configuration:
         tertiary: "#84a59d"
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#b3aa0288"
+layout:
+  groups:
+    toolbar:
+      priority: 35
+      direction: row
+      gap: 0.5rem
+  byPageType:
+    "404":
+      positions:
+        beforeBody: []
+        left: []
+        right: []
+    content: {}
+    folder:
+      exclude:
+        - reader-mode
+      # this is what hides graph mode
+      # for tags/folders, the shown items don't count, so there's nothing to see in graph mode anyways
+      positions:
+        right: []
+    tag:
+      exclude:
+        - reader-mode
+      positions:
+        right: []
+    canvas: {}
+    bases: {}
 plugins:
   - source: "@quartz-themes/core"
   # quartz-themes is treated as a bundled plugin but you have to install it via npm
@@ -74,9 +101,9 @@ plugins:
     enabled: true
     options:
       theme:
-        light: github-light
-        dark: github-dark
-      keepBackground: false
+        light: catppuccin-frappe
+        dark: horizon
+      keepBackground: true
     order: 20
   - source: "@quartz-community/obsidian-flavored-markdown"
     enabled: true
@@ -106,26 +133,27 @@ plugins:
     options:
       renderEngine: katex
     order: 80
-  - source: "@quartz-community/citations"
+  - source: "@quartz-community/citations" # remove
     enabled: false
     order: 85
-  - source: "@quartz-community/hard-line-breaks"
+  - source: "@quartz-community/hard-line-breaks" # likely remove
     enabled: false
     order: 90
-  - source: "@quartz-community/ox-hugo"
+  - source: "@quartz-community/ox-hugo" # remove
     enabled: false
     order: 91
-  - source: "@quartz-community/roam"
+  - source: "@quartz-community/roam" # consider
     enabled: false
     order: 92
   - source: "@quartz-community/remove-draft"
     enabled: true
-  - source: "@quartz-community/explicit-publish"
+  - source: "@quartz-community/explicit-publish" # remove (dupe of remove-draft)
     enabled: false
-  - source: "@quartz-community/unlisted-pages"
+  - source: "@quartz-community/unlisted-pages" # remove? no clue why you'd want this
     enabled: true
     options: {}
     order: 45
+  # seems a little silly if github is public, but does work with unlisted-pages to "hide" a page behind a pwd
   - source: "@quartz-community/encrypted-pages"
     enabled: true
     options:
@@ -134,6 +162,8 @@ plugins:
       unlistWhenEncrypted: false
       outputPath: static/encryptedContentIndex.json
   - source: "@quartz-community/stacked-pages"
+    # would be REALLY COOL if it worked like the inspo: https://notes.andymatuschak.org/About_these_notes?stackedNotes=z5E5QawiXCMbtNtupvxeoEX
+    # unfortunately just adds some jank looking tabs
     enabled: false
     layout:
       position: afterBody
@@ -152,7 +182,7 @@ plugins:
     enabled: true
   - source: "@quartz-community/cname"
     enabled: true
-  - source: "@quartz-community/canvas-page"
+  - source: "@quartz-community/canvas-page" # you should try using this!
     enabled: true
   - source: "@quartz-community/content-page"
     enabled: true
@@ -170,6 +200,11 @@ plugins:
     layout:
       position: right
       priority: 10
+    options:
+      localGraph:
+        showTags: false
+      globalGraph:
+        showTags: false
   - source: "@quartz-community/search"
     enabled: true
     layout:
@@ -270,28 +305,3 @@ plugins:
     enabled: true
     options: {}
     order: 50
-layout:
-  groups:
-    toolbar:
-      priority: 35
-      direction: row
-      gap: 0.5rem
-  byPageType:
-    "404":
-      positions:
-        beforeBody: []
-        left: []
-        right: []
-    content: {}
-    folder:
-      exclude:
-        - reader-mode
-      positions:
-        right: []
-    tag:
-      exclude:
-        - reader-mode
-      positions:
-        right: []
-    canvas: {}
-    bases: {}
