@@ -5,6 +5,7 @@ enableToc: true
 tags:
   - crochet
   - art
+permalink: lemon-peel-stitch
 ---
 As I've been getting into crochet, I've learned that there are a vast number of kinds of stitches out there to work up fabric from, and there's not really a standard place documenting all of these. I want to use this garden to start writing down the ones I find. Starting off with the lemon peel stitch, which I used to make a mini scarf out of 50g of yarn I got on sale.
 ## Stitch metrics

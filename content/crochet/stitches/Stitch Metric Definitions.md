@@ -5,6 +5,7 @@ enableToc: true
 tags:
   - crochet
   - art
+permalink: crochet-stitch-metrics
 ---
 Stitch metrics are quantitative descriptors of a stitch that should help describe and categorize it with similar stitches. Crochet isn't really something you can be 100% quantitative about so there will be some categorical or straight up vibes-based measurements, but the goal is to have reliable data, so I will do my best to only include measurable or at least reasonable metrics. 
 
