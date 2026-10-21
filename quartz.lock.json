@@ -1,6 +1,12 @@
 {
   "version": "1.0.0",
   "plugins": {
+    "quartz-navbar": {
+      "source": "github:satche/quartz-navbar",
+      "resolved": "https://github.com/satche/quartz-navbar.git",
+      "commit": "b62e37616a1cc08451ff2f4e6f07d39963f61140",
+      "installedAt": "2026-10-21T21:06:57.216Z"
+    },
     "tui": {
       "source": "github:quartz-community/tui",
       "resolved": "https://github.com/quartz-community/tui.git",

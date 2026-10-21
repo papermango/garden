@@ -1,5 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 # note quartz tui deletes the comments here - don't use it probably
+# npx quartz plugin add deletes them too
 configuration:
   pageTitle: Parth's Garden
   pageTitleSuffix: ""
@@ -133,22 +134,11 @@ plugins:
     options:
       renderEngine: katex
     order: 80
-  - source: "@quartz-community/citations" # remove
-    enabled: false
-    order: 85
-  - source: "@quartz-community/hard-line-breaks" # likely remove
-    enabled: false
-    order: 90
-  - source: "@quartz-community/ox-hugo" # remove
-    enabled: false
-    order: 91
   - source: "@quartz-community/roam" # consider
     enabled: false
     order: 92
   - source: "@quartz-community/remove-draft"
     enabled: true
-  - source: "@quartz-community/explicit-publish" # remove (dupe of remove-draft)
-    enabled: false
   - source: "@quartz-community/unlisted-pages" # remove? no clue why you'd want this
     enabled: true
     options: {}
@@ -305,3 +295,17 @@ plugins:
     enabled: true
     options: {}
     order: 50
+  - source: github:satche/quartz-navbar
+    enabled: true
+    options:
+      links:
+        - label: Home
+          href: /
+          external: false
+        - label: GitHub
+          href: https://github.com/papermango
+          external: true
+    order: 50
+    layout:
+      position: header # this is accepted by the build
+      priority: 50
