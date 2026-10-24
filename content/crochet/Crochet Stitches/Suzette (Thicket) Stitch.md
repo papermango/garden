@@ -11,6 +11,7 @@ permalink: suzette-thicket-stitch
 - Name(s): Suzette, Thicket 
 - Turning height: 1 ch
 - Spacing: 2
+
 As always, definitions in [[Stitch Metric Definitions]].
 ## Stitch anatomy
 > \[sk, (sc, dc)]

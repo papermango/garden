@@ -12,6 +12,7 @@ As I've been getting into crochet, I've learned that there are a vast number of 
 - Name(s): Lemon Peel
 - Turning height: 1 ch
 - Spacing: 2 st
+
 As I continue to document these, I'll expand on this list of metrics. They'll be defined [[Stitch Metric Definitions|here]]. 
 ## Stitch anatomy
 A lemon peel stitch is alternating single and double crochet: 
